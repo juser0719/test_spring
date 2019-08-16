@@ -1,23 +1,22 @@
 package com.example.test_spring.controller;
 
-import com.example.test_spring.service.list;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
 @RestController
-public class RestWSController {
+public class RestControl2 {
     @Autowired
-    list OrganizationService;
-    @RequestMapping(value = "/ws/list", method = RequestMethod.POST)
-
-        public Object actionMethod() {
-            Object resultObject = new Object();
-            resultObject = OrganizationService.actionMethod();
-        return resultObject;
+    
+    @RequestMapping(value = "/ws/ajax", method = RequestMethod.POST)
+    public String getParmWithAjax(@RequestParam Map<String,Object> paramMap) {
+        String str = (String) paramMap.get("title");
+        return str;
     }
 }
