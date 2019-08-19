@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        </head>
+    <body>
+        <script>
+           
+           //var apiURI = "https://samples.openweathermap.org/data/2.5/forecast?id=1835848&appid=a2efb471990ef1e48ea7ff2b96f9f3c3";
+            $.ajax
+            ({
+                type: "GET",
+                url: "http://localhost:8080/weather",
+                //dataType: "json",
+                
+                //async: "false",
+                data:{
+
+                },
+                success: function(resp) 
+                {
+
+                    $("#d1").append("온도 : "+ (resp.list[2].main.temp - 273.15).toFixed(1) +"\n" );
+                    $("#d1-1").append("바람   : "+ resp.list[2].wind.speed +"\n");
+                    $("#d1-2").append( (resp.list[2].dt_txt) +"\n"); 
+                    var imgURL = "http://openweathermap.org/img/w/" + resp.list[2].weather[0].icon + ".png";
+                    $("#day1").attr("src", imgURL);
+
+                    $("#d2").append("온도 : "+ (resp.list[3].main.temp - 273.15).toFixed(1) +"\n" );
+                    $("#d2-1").append("바람   : "+ resp.list[3].wind.speed +"\n");
+                    $("#d2-2").append( (resp.list[3].dt_txt) +"\n"); 
+                    var imgURL = "http://openweathermap.org/img/w/" + resp.list[3].weather[0].icon + ".png";
+                    $("#day2").attr("src", imgURL);
+
+                    $("#d3").append("온도 : "+ (resp.list[4].main.temp - 273.15).toFixed(1) +"\n" );
+                    $("#d3-1").append("바람   : "+ resp.list[4].wind.speed +"\n");
+                    $("#d3-2").append( (resp.list[4].dt_txt) +"\n"); 
+                    var imgURL = "http://openweathermap.org/img/w/" + resp.list[4].weather[0].icon + ".png";
+                    $("#day3").attr("src", imgURL);
+
+                    $("#d4").append("온도 : "+ (resp.list[5].main.temp - 273.15).toFixed(1) +"\n" );
+                    $("#d4-1").append("바람   : "+ resp.list[5].wind.speed +"\n");
+                    $("#d4-2").append((resp.list[5].dt_txt) +"\n"); 
+                    var imgURL = "http://openweathermap.org/img/w/" + resp.list[5].weather[0].icon + ".png";
+                    $("#day4").attr("src", imgURL); 
+
+                    $("#d5").append("온도 : "+ (resp.list[6].main.temp - 273.15).toFixed(1) +"\n" );
+                    $("#d5-1").append("바람   : "+ resp.list[6].wind.speed +"\n");
+                    $("#d5-2").append( (resp.list[6].dt_txt) +"\n"); 
+                    var imgURL = "http://openweathermap.org/img/w/" + resp.list[6].weather[0].icon + ".png";
+                    $("#day5").attr("src", imgURL);
+
+                    $("#d6").append("온도 : "+ (resp.list[7].main.temp - 273.15).toFixed(1) +"\n" );
+                    $("#d6-1").append("바람   : "+ resp.list[7].wind.speed +"\n");
+                    $("#d6-2").append( (resp.list[7].dt_txt) +"\n"); 
+                    var imgURL = "http://openweathermap.org/img/w/" + resp.list[7].weather[0].icon + ".png";
+                    $("#day6").attr("src", imgURL);   
+
+                    $("#d7").append("온도 : "+ (resp.list[8].main.temp - 273.15).toFixed(1) +"\n" );
+                    $("#d7-1").append("바람   : "+ resp.list[8].wind.speed +"\n");
+                    $("#d7-2").append( (resp.list[8].dt_txt) +"\n"); 
+                    var imgURL = "http://openweathermap.org/img/w/" + resp.list[8].weather[0].icon + ".png";
+                    $("#day7").attr("src", imgURL);
+
+                    $("#d8").append("온도 : "+ (resp.list[9].main.temp - 273.15).toFixed(1) +"\n" );
+                    $("#d8-1").append("바람   : "+ resp.list[9].wind.speed +"\n");
+                    $("#d8-2").append( (resp.list[9].dt_txt) +"\n"); 
+                    var imgURL = "http://openweathermap.org/img/w/" + resp.list[9].weather[0].icon + ".png";
+                    $("#day8").attr("src", imgURL);                    
+                }
+            })
+        </script>
+        
+        <table class=" col-10 ">
+            <thead>
+                <tr>
+                    <th id ="d1-2"></th>
+                    <th id ="d2-2"></th>
+                    <th id ="d3-2"></th>
+                    <th id ="d4-2"></th>
+                    <th id ="d5-2"></th>
+                    <th id ="d6-2"></th>
+                    <th id ="d7-2"></th>
+                    <th id ="d8-2"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                       
+                            <img id ="day1" src = "">
+                            <p id ="d1"></p>
+                            <p id ="d1-1"></p>
+                        
+                        
+                    </td>
+                    <td>
+                        <div>
+                            <img id ="day2" src = "">
+                            <p id ="d2"></p>
+                            <p id ="d2-1"></p>
+                        
+                        </div>
+                    </td>
+                    <td>
+                            <div>
+                                <img id ="day3" src = "">
+                                <p id ="d3"></p>
+                                <p id ="d3-1"></p>
+                            
+                            </div>
+                    </td>
+                    <td>
+                            <div>
+                                <img id ="day4" src = "">
+                                <p id ="d4"></p>
+                                <p id ="d4-1"></p>
+                            
+                            </div>
+                    </td>
+                    <td>
+                            <div>
+                                <img id ="day5" src = "">
+                                <p id ="d5"></p>
+                                <p id ="d5-1"></p>
+                            
+                            </div>
+                    </td>
+                    <td>
+                            <div>
+                                <img id ="day6" src = "">
+                                <p id ="d6"></p>
+                                <p id ="d6-1"></p>
+                            
+                            </div>
+                    </td>
+                    <td>
+                            <div>
+                                <img id ="day7" src = "">
+                                <p id ="d7"></p>
+                                <p id ="d7-1"></p>
+                            
+                            </div>
+                    </td>
+                    <td>
+                            <div>
+                                <img id ="day8" src = "">
+                                <p id ="d8"></p>
+                                <p id ="d8-1"></p>
+                            
+                            </div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+
+        
+    </body>
+</html> 

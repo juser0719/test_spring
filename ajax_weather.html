@@ -10,7 +10,7 @@
         <script>
         $.ajax({
                 type: "POST",
-                url: "http://localhost:8080/remote/openweather",
+                url: "http://localhost:8080/remote/weather",
                 data: {
                 },
                 success: function (data, status) {
@@ -20,7 +20,7 @@
                         //if(key typeof "Map")
                         $("#demo").append(key+": "+data[key]+"<br>");
                     }
-                // Map<String, Object> resultObject = new HashMap<String, Object>();
+                //Map<String, Object> resultObject = new HashMap<String, Object>();
                 }
             });
         </script>
