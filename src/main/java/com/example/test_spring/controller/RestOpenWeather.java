@@ -9,21 +9,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-@CrossOrigin
-@RestController
 public class RestOpenWeather {
-    @Autowired
-    list OrganizationService;
-    @RequestMapping(value = "/remote/openweather")
-
-        public Object actionMethod() {
-            RestTemplate restTemplate = new RestTemplate();
-            Object tempObject = new Object();
-            String keyId = "a2efb471990ef1e48ea7ff2b96f9f3c3";
-            String targetUri = "https://samples.openweathermap.org/data/2.5/weather?q=SEOUL,uk&appid=a2efb471990ef1e48ea7ff2b96f9f3c3";
-            Object resultObject = restTemplate.getForObject(targetUri, Object.class);
-            
-            return resultObject;
-             
+    @RequestMapping(value = "/remote/openweather", method = RequestMethod.POST)
+    public Object actionMethod(){
+        RestTemplate restTemplate = new RestTemplate();
+        Object resultObject = new Object();
+        String keyid = "a2efb471990ef1e48ea7ff2b96f9f3c3";
+        String targeturi = "https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid="+keyid;
+        resultObject = restTemplate.getForObject(targeturi, Object.class);
+        return resultObject;
     }
 }
